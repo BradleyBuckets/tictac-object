@@ -1,0 +1,114 @@
+:root {
+  --win-background: rgba(0, 0, 0, 0.8);
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * 0.9);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: whitesmoke;
+}
+
+.board {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 2px solid black;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-bottom: none;
+}
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+  border-left: none;
+}
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+  border-right: none;
+}
+
+.cell.x {
+  background-color: crimson;
+}
+
+.cell.o {
+  background-color: navy;
+}
+
+.cell:hover {
+  cursor: pointer;
+}
+
+.cell.x:hover,
+.cell.o:hover {
+  cursor: not-allowed;
+}
+
+.board .cell:not(.x):not(.o):hover {
+  background-color: aqua;
+}
+
+.winning {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--win-background);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.winContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.winContainer {
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+}
+
+.message {
+  color: whitesmoke;
+  font-size: 48px;
+  margin: 10px;
+}
+
+.reset {
+  font-size: 36px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px 15px;
+  background-color: whitesmoke;
+}
+
+.reset:hover {
+  background-color: darkgray;
+  cursor: pointer;
+}
